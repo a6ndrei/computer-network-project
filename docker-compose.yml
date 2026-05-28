@@ -1,0 +1,18 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: rc_server
+    ports:
+      - "9000:9000"
+    volumes:
+      - db_data:/app/data
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "9000"
+      DB_PATH: "data/products.db"
+    restart: unless-stopped
+
+volumes:
+  db_data:
