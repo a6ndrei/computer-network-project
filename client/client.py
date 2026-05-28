@@ -42,7 +42,7 @@ def _display_message(msg: dict):
     if "event" in msg:
         event = msg["event"]
         pid   = msg.get("product_id", "?")
-        print(f"\n{'':>2}🔔 NOTIFICARE – produsul #{pid} a fost {('MODIFICAT' if event == 'updated' else 'STERS')}!")
+        print(f"\n{'':>2} NOTIFICARE – produsul #{pid} a fost {('MODIFICAT' if event == 'updated' else 'STERS')}!")
         if event == "updated" and "product" in msg:
             _print_product(msg["product"])
         print("  > ", end="", flush=True)

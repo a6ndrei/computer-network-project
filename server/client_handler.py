@@ -152,7 +152,7 @@ class ClientHandler(threading.Thread):
 
         self._send({"status": "ok", "message": f"Produsul {pid} a fost sters."})
 
-        # Notificare push + curatare abonamente
+       
         self._notify_subscribers(pid, "deleted", None)
         with self.subs_lock:
             self.subscriptions.pop(pid, None)
@@ -166,7 +166,7 @@ class ClientHandler(threading.Thread):
             notification["product"] = product
 
         for handler in subscribers:
-            if handler is not self:  # nu ne notificam pe noi insine
+            if handler is not self: 
                 handler._send(notification)
 
     def _send(self, data: dict):

@@ -13,7 +13,6 @@ PORT = int(os.environ.get("PORT", 9000))
 
 def main():
     db = Database()
-
     
     subscriptions: dict = {}          
     subs_lock     = threading.Lock()
